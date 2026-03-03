@@ -17,21 +17,20 @@ claude   # or kiro
 > /setup
 ```
 
-`/setup` を実行すると、`new-task` スキルが `~/.claude/skills/` にコピーされる。
+`/setup` を実行すると、`task-implement` と `task-review` スキルが `~/.claude/skills/` にコピーされる。
 
 ## ディレクトリ構成
 
 ```
 task-automation/
 ├── CLAUDE.md              # Claude への行動指示・コンベンション
-├── skills/                # スキル定義（テンプレート含む）
-│   └── new-task/          # タスクスキャフォールドスキル
-│       ├── SKILL.md
-│       └── templates/     # 4文書テンプレート (PLAN/SPEC/TODO/KNOWLEDGE)
+├── templates/             # 4文書テンプレート (PLAN/SPEC/TODO/KNOWLEDGE)
+├── skills/                # スキル定義（正本。/setup でグローバルにインストール）
+│   ├── task-implement/    # タスク実装支援スキル
+│   └── task-review/       # タスクレビュースキル
 ├── .claude/skills/        # プロジェクトレベルスキル
-│   ├── setup/             # 環境セットアップ
-│   ├── task-implement/    # タスク実装
-│   └── task-review/       # タスクレビュー
+│   └── setup/             # 環境セットアップ
+├── .kiro/agents/          # Kiro カスタムエージェント
 ├── tasks/
 │   └── {task-name}/       # 各タスクのワークスペース
 ├── snippets/              # 再利用可能なスクリプト・コード片
@@ -42,12 +41,13 @@ task-automation/
 ## ワークフロー
 
 ```
-/new-task {name}  →  PLAN.md 作成(ヒアリング)
-                  →  SPEC.md 精緻化(自動化の境界を議論)
-                  →  TODO.md 生成(タスク分解)
-                  →  /task-implement {name} で実装
-                  →  /task-review {name} でレビュー
-                  →  KNOWLEDGE.md に学びを記録
+templates/ から4文書を tasks/{name}/ にコピー
+  →  PLAN.md 作成(ヒアリング)
+  →  SPEC.md 精緻化(自動化の境界を議論)
+  →  TODO.md 生成(タスク分解)
+  →  /task-implement {name} で実装
+  →  /task-review {name} でレビュー
+  →  KNOWLEDGE.md に学びを記録
 ```
 
 ## 4文書テンプレート
