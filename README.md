@@ -40,3 +40,7 @@ task-automation/
 | SPEC.md | 仕様の精緻化（自動化の境界を含む） |
 | TODO.md | フェーズ分けされたタスク管理 |
 | KNOWLEDGE.md | 知見・ハマりポイントの蓄積 |
+
+## 参考
+
+- [Claude Codeですべての日常業務を爆速化しよう！](https://qiita.com/minorun365/items/114f53def8cb0db60f47) - 本フレームワークの着想元
