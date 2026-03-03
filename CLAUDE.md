@@ -7,7 +7,7 @@
 ## コンベンション
 - タスク名はケバブケース (`expense-report`, `attendance-automation`)
 - 各タスクは `tasks/{task-name}/` に4文書を配置
-- 4文書テンプレートの正本は `templates/` に配置
+- 4文書テンプレートは `skills/task/templates/` にスキルと同梱
 - スキル定義は `skills/` に配置し、`/setup` でユーザー環境にコピーする
 - 再利用可能なコード片は `snippets/` に切り出す
 - 調査結果は `docs/` に蓄積
