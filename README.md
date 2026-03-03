@@ -8,13 +8,31 @@
 AI が得意な部分を自動化し、人間の判断が必要な部分は人間に委ねる。
 SPEC.md の「自動化の境界」セクションで AI/人間の役割分担を常に明示する。
 
+## セットアップ
+
+```bash
+git clone <repository-url>
+cd task-automation
+claude   # or kiro
+> /setup
+```
+
+`/setup` を実行すると、`new-task` スキルが `~/.claude/skills/` にコピーされる。
+
 ## ディレクトリ構成
 
 ```
 task-automation/
 ├── CLAUDE.md              # Claude への行動指示・コンベンション
+├── skills/                # スキル定義（テンプレート含む）
+│   └── new-task/          # タスクスキャフォールドスキル
+│       ├── SKILL.md
+│       └── templates/     # 4文書テンプレート (PLAN/SPEC/TODO/KNOWLEDGE)
+├── .claude/skills/        # プロジェクトレベルスキル
+│   ├── setup/             # 環境セットアップ
+│   ├── task-implement/    # タスク実装
+│   └── task-review/       # タスクレビュー
 ├── tasks/
-│   ├── _template/         # 4文書テンプレート (PLAN/SPEC/TODO/KNOWLEDGE)
 │   └── {task-name}/       # 各タスクのワークスペース
 ├── snippets/              # 再利用可能なスクリプト・コード片
 ├── docs/                  # 調査メモ・参考資料
